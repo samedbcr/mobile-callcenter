@@ -1,4 +1,4 @@
-# mobile-callcenter screemshots
+# mobile-callcenter screenshots
 
 ___
 ![c-1](https://user-images.githubusercontent.com/47063371/58670346-61e7ab00-8347-11e9-9187-8cddacc4998e.png)
