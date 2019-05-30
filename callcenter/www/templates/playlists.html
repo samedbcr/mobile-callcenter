@@ -1,0 +1,51 @@
+<ion-view view-title="CallCenter">
+	<ion-content>
+
+		<!-- ARAMA BOLGESI -->
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" placeholder="Ara" ng-model="ara.adi">
+				<!-- ng-model'a ara.adi dedik cunku asagida filter'ı sadece adi'na gore yapacagim -->
+			</label>
+		</div>
+
+		<!-- BILGILENDIRME KARTI -->
+		<!-- xxx Sonuç bulundu -->
+		<!-- <div class="card" ng-if="ara && sonuc.length > 0">
+			<div class="item item-text-wrap item-dark">
+				<b>{{ara}}</b> kelimesine ait {{sonuc.length}} sonuç bulundu...
+			</div>
+		</div> -->
+	
+		<!-- Sonuç bulunamadı -->
+		<!-- <div class="card animated wobble" ng-if="sonuc.length == 0">
+			<div class="item item-text-wrap item-royal">
+				<b>{{ara}}</b> kelimesine ait sonuç bulunamadı...
+			</div>
+		</div> -->
+	
+
+
+												<!-- ng-if="ara" => ara doluysa demek -->
+		<div class="card {{sonuc.length > 0 ? '' : 'animated wobble'}}" ng-if="ara.adi">
+			<div class="item item-text-wrap {{sonuc.length > 0 ? 'item-balanced' : 'item-assertive'}}">
+				{{sonuc.length>0 ? '"' + ara.adi + '"' + ' kelimesine ait ' + sonuc.length + ' adet sonuç bulundu': 'Sonuç bulunamadı.'}}
+			</div>
+		</div>
+
+
+
+		<!-- LISTELEME BOLGESI -->
+		<div class="list">
+			                                                      <!-- ara'ya sonuc ismini verdim -->
+			<a class="item item-avatar" ng-repeat="firma in firmalar | filter:ara as sonuc" href="#/app/detay/{{firma.id}}">
+				<img src="{{firma.logo}}">
+				<h2>{{firma.adi}}</h2>
+				<p>{{firma.kategori}}</p>
+			</a>
+
+		</div>    
+
+	</ion-content>
+</ion-view>
